@@ -2,18 +2,31 @@
  * @Author: tangdaoyong
  * @Date: 2020-11-23 22:39:32
  * @LastEditors: tangdaoyong
- * @LastEditTime: 2020-11-23 23:25:58
+ * @LastEditTime: 2020-11-23 23:42:05
  * @Description: file content
  */
 const path = require('path');
 const toml = require('toml');
 const yaml = require('yamljs');
 const json5 = require('json5');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+//   entry: './src/index.js',
+  entry: {
+    app: './src/index.js',
+    print: './src/js/print.js',
+  },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: '管理输出',
+    }),
+  ],
   output: {
-    filename: 'bundle.js',
+    // filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
   module: {
