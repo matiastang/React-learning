@@ -2,13 +2,17 @@
   "name": "react-learning",
   "version": "1.0.0",
   "description": "React 学习知识点记录",
-  "main": "index.js",
+  "private": true,
   "dependencies": {
+    "lodash": "^4.17.20",
     "typescript": "^4.0.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "webpack": "^5.6.0",
+    "webpack-cli": "^4.2.0"
+  },
   "scripts": {
-    "build": "npm run build",
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
