@@ -1,0 +1,72 @@
+<!--
+ * @Author: tangdaoyong
+ * @Date: 2020-11-18 22:36:20
+ * @LastEditors: tangdaoyong
+ * @LastEditTime: 2020-11-23 22:06:11
+ * @Description: file content
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React hook</title>
+</head>
+<body>
+
+    <!-- hook -->
+    <div id="hook_container"></div>
+
+    <!-- 加载 React。-->
+    <!-- 注意: 部署时，将 "development.js" 替换为 "production.min.js"。-->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        // 此处直接写jsx
+        'use strict';
+
+        // 函数组件
+        // function Example() {
+        //     // 声明一个叫 "count" 的 state 变量
+        //     const [count, setCount] = useState(0);
+        //     return (
+        //         <div>
+        //         <p>You clicked {count} times</p>
+        //         <button onClick={() => setCount(count + 1)}>
+        //             Click me
+        //         </button>
+        //         </div>
+        //     );
+        // }
+
+        // 类组件
+        class Example extends React.Component {
+
+            constructor(props) {
+                super(props);
+                this.state = {
+                    count: 0
+                };
+            }
+        
+            render() {
+                return (
+                    <div>
+                    <p>You clicked {this.state.count} times</p>
+                    <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+                        Click me
+                    </button>
+                    </div>
+                );
+            }
+        }
+
+        const domNode = document.querySelector('#hook_container');
+        ReactDOM.render(React.createElement(Example), domNode);
+    </script>
+    <!-- 加载我们的 React 组件。
+    <script type="text/jsx" src="../react/hook.jsx"></script> -->
+</body>
+</html>
