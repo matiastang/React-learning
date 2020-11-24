@@ -11,16 +11,22 @@
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^5.0.1",
     "csv-loader": "^3.0.3",
+    "express": "^4.17.1",
     "html-webpack-plugin": "^4.5.0",
     "json5": "^2.1.3",
     "style-loader": "^2.0.0",
     "toml": "^3.0.0",
     "webpack": "^5.6.0",
     "webpack-cli": "^4.2.0",
+    "webpack-dev-middleware": "^4.0.2",
+    "webpack-dev-server": "^3.11.0",
     "xml-loader": "^1.2.1",
     "yamljs": "^0.3.0"
   },
   "scripts": {
+    "server": "node server.js",
+    "start": "webpack serve --open chrome",
+    "watch": "webpack --watch",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

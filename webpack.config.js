@@ -2,7 +2,7 @@
  * @Author: tangdaoyong
  * @Date: 2020-11-23 22:39:32
  * @LastEditors: tangdaoyong
- * @LastEditTime: 2020-11-23 23:42:05
+ * @LastEditTime: 2020-11-24 09:50:38
  * @Description: file content
  */
 const path = require('path');
@@ -18,16 +18,21 @@ module.exports = {
     app: './src/index.js',
     print: './src/js/print.js',
   },
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './dist',
+  },
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),// 增量构建不删除
     new HtmlWebpackPlugin({
-      title: '管理输出',
+      title: '开发环境',
     }),
   ],
   output: {
     // filename: 'bundle.js',
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
   },
   module: {
       rules: [
